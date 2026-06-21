@@ -81,7 +81,7 @@ button:hover {
 </div>
 
 <script>
-function typeText(text, element, speed = 40) {
+function typeText(text, element, speed = 35) {
   let i = 0;
   element.innerHTML = "";
 
@@ -101,10 +101,10 @@ function checkAnswer() {
   const error = document.getElementById("error");
   const message = document.getElementById("message");
 
-  // change this to your "secret answer"
-  const correctAnswer = "me";
+  // accept multiple reasonable answers
+  const correctAnswers = ["me", "Me", "Vishwanath", "vishwanath"];
 
-  if (userInput === correctAnswer) {
+  if (correctAnswers.includes(userInput)) {
     error.innerHTML = "";
 
     const text =
@@ -112,23 +112,19 @@ function checkAnswer() {
 
 You unlocked this message.
 
-Thank you for everything you do,
+You always handle things quietly and do the things i forget to do or overlook without making it feel like a burden.
 
-I don't usually say things like this out loud, so i guess i'll say it here instead.
-You do a lot for us, and even more than i have ever fully acknowledged. You always handle things quietly and do the things i forget to do or overlook without making it feel like a burden
-We're very similar in a lot of ways and maybe because of that i dont express my appreciation as much as i should, and i feel bad about it sometimes
-I know im not very expressive, i dont hug often and i dont tell you how i feel but that doesnt mean i dont feel things deeply.
-I'm really grateful for you, and how much you've invested in me, supported me and pushed me to be more confident and for the fact that you are my dad!!!!
+We're very similar in a lot of ways and maybe because of that i dont express my appreciation as much as i should, and i feel bad about it sometimes.
+
+I know im not very expressive, i dont hug often and i dont tell you how i feel but that doesnt mean i dont feel things deeply. 
+
+I'm really grateful for you, and how much you've invested in me, supported me and pushed me to be more confident and for the fact that you are my dad!!!! 
+
 im frustrated that i cant express myself properly but i hope you never doubt that i love you, even when im quiet or distant, and i always have and i always will!!
-I hope today feels as special as you are.`;
 
     typeText(text, message);
   } else {
-    error.innerHTML = "❌ Nope… try again 💙";
+    error.innerHTML = "❌ Try again 💙";
     message.innerHTML = "";
   }
 }
-</script>
-
-</body>
-</html>
