@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Father's Day Surprise</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle, #0b1d3a, #050814);
+  font-family: Arial, sans-serif;
+  color: white;
+}
+
+.container {
+  text-align: center;
+  width: 80%;
+  max-width: 500px;
+}
+
+input {
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  width: 80%;
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+button {
+  padding: 12px 20px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 10px;
+  background: #4da3ff;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+  background: #1e7fe0;
+}
+
+#message {
+  margin-top: 25px;
+  font-size: 18px;
+  white-space: pre-line;
+  min-height: 120px;
+}
+
+.error {
+  color: #ff6b6b;
+  margin-top: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <h2>🔐 Answer to unlock your surprise</h2>
+
+  <p>Whats the name of the most magnanimous convivial indelible altruistic and paragon of intelligence supercalifragilisticexpialidocious dad in the entire universe? hint: you”?</p>
+
+  <input type="text" id="answer" placeholder="Type your answer here...">
+
+  <br>
+
+  <button onclick="checkAnswer()">Unlock 💙</button>
+
+  <div id="error"></div>
+  <div id="message"></div>
+
+</div>
+
+<script>
+function typeText(text, element, speed = 40) {
+  let i = 0;
+  element.innerHTML = "";
+
+  function typing() {
+    if (i < text.length) {
+      element.innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typing, speed);
+    }
+  }
+
+  typing();
+}
+
+function checkAnswer() {
+  const userInput = document.getElementById("answer").value.trim().toLowerCase();
+  const error = document.getElementById("error");
+  const message = document.getElementById("message");
+
+  // change this to your "secret answer"
+  const correctAnswer = "Me";
+
+  if (userInput === correctAnswer) {
+    error.innerHTML = "";
+
+    const text =
+`Happy Father’s Day 💙
+
+You unlocked this message.
+
+Thank you for everything you do,
+
+I don't usually say things like this out loud, so i guess i'll say it here instead.
+You do a lot for us, and even more than i have ever fully acknowledged. You always handle things quietly and do the things i forget to do or overlook without making it feel like a burden
+We're very similar in a lot of ways and maybe because of that i dont express my appreciation as much as i should, and i feel bad about it sometimes
+I know im not very expressive, i dont hug often and i dont tell you how i feel but that doesnt mean i dont feel things deeply.
+I'm really grateful for you, and how much you've invested in me, supported me and pushed me to be more confident and for the fact that you are my dad!!!!
+im frustrated that i cant express myself properly but i hope you never doubt that i love you, even when im quiet or distant, and i always have and i always will!!
+I hope today feels as special as you are.`;
+
+    typeText(text, message);
+  } else {
+    error.innerHTML = "❌ Nope… try again 💙";
+    message.innerHTML = "";
+  }
+}
+</script>
+
+</body>
+</html>
